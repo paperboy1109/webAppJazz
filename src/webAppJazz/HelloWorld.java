@@ -19,10 +19,12 @@ class Course {
 	private String building;
 	private String room;
 	
+	private String instructor;
+	
 	private String[] notes;
 	
 
-		public Course(String crn, String usp, String subject, String cnumber, String section, String title, int credits, String days, String start, String stop, String building, String room, String[] notes) {
+		public Course(String crn, String usp, String subject, String cnumber, String section, String title, int credits, String days, String start, String stop, String building, String room, String instructor, String[] notes) {
     		super();
     		this.crn = crn;
     		this.usp = usp;
@@ -38,6 +40,8 @@ class Course {
     		this.stop = stop;
     		this.building = building;
     		this.room = room;
+    		
+    		this.instructor = instructor;
     		
     		this.notes = notes;
 		}
@@ -83,6 +87,10 @@ class Course {
 		}
 		public String getRoom() {
 			return room;
+		}
+		
+		public String getInstructor() {
+			return instructor;
 		}
 
 	    public String[] getNotes() {
@@ -157,9 +165,11 @@ public class HelloWorld{
     	String placeholderStop = "11:50"; 
     	String placeholderBuilding = "CR";
     	String placeholderRoom = "rm123";
+    	
+    	String placeholderInstructor = "Cameron Wright";
         
         String[] courseNotes = {"Note1", "Note2"};
-        Course myCourse = new Course(crn, placeholderUsp, subj, placeholderCNumber, placeholderSection, placeholderTitle, placeholderCredits, myCourseDay, placeholderStart, placeholderStop, placeholderBuilding, placeholderRoom, courseNotes);
+        Course myCourse = new Course(crn, placeholderUsp, subj, placeholderCNumber, placeholderSection, placeholderTitle, placeholderCredits, myCourseDay, placeholderStart, placeholderStop, placeholderBuilding, placeholderRoom, placeholderInstructor, courseNotes);
 
         System.out.println("*Here is the CRN for myCourse: ");
         System.out.println(myCourse.getCrn());
@@ -173,7 +183,7 @@ public class HelloWorld{
         //String subj = "Java";
         myCourseDay = "W";
         String[] courseNotesB = {"Note3", "Note4"};
-        Course myCourseB = new Course(crn, placeholderUsp, subj, placeholderCNumber, placeholderSection, placeholderTitle, placeholderCredits, myCourseDay, placeholderStart, placeholderStop, placeholderBuilding, placeholderRoom, courseNotesB);
+        Course myCourseB = new Course(crn, placeholderUsp, subj, placeholderCNumber, placeholderSection, placeholderTitle, placeholderCredits, myCourseDay, placeholderStart, placeholderStop, placeholderBuilding, placeholderRoom, placeholderInstructor, courseNotesB);
         
         //Create another myCourse, but with different notes
         System.out.println("Working with Course objects \n");
@@ -181,7 +191,7 @@ public class HelloWorld{
         //String subj = "Java";
         myCourseDay = "F";
         String[] courseNotesC = {"Note5", "Note6"};
-        Course myCourseC = new Course(crn, placeholderUsp, subj, placeholderCNumber, placeholderSection, placeholderTitle, placeholderCredits, myCourseDay, placeholderStart, placeholderStop, placeholderBuilding, placeholderRoom, courseNotesC);
+        Course myCourseC = new Course(crn, placeholderUsp, subj, placeholderCNumber, placeholderSection, placeholderTitle, placeholderCredits, myCourseDay, placeholderStart, placeholderStop, placeholderBuilding, placeholderRoom, placeholderInstructor, courseNotesC);
 
         
         
@@ -201,10 +211,12 @@ public class HelloWorld{
     	placeholderStop = "6:00"; 
     	placeholderBuilding = "AG";
     	placeholderRoom = "rm456";
+    	
+    	placeholderInstructor = "Jeff Clune";
         
         String[] courseNotes2 = {"YourNote1", "YourNote2"};
         
-        Course yourCourse = new Course(crn2, placeholderUsp, subj2, placeholderCNumber, placeholderSection, placeholderTitle, placeholderCredits, yourCourseDay, placeholderStart, placeholderStop, placeholderBuilding, placeholderRoom, courseNotes2);
+        Course yourCourse = new Course(crn2, placeholderUsp, subj2, placeholderCNumber, placeholderSection, placeholderTitle, placeholderCredits, yourCourseDay, placeholderStart, placeholderStop, placeholderBuilding, placeholderRoom, placeholderInstructor, courseNotes2);
         System.out.println("Here is the CRN for yourCourse: ");
         System.out.println(yourCourse.getCrn());
 
@@ -223,10 +235,12 @@ public class HelloWorld{
     	placeholderStop = "9:00"; 
     	placeholderBuilding = "BU";
     	placeholderRoom = "rm789";
+    	
+    	placeholderInstructor = "Gamboa";
         
         String[] courseNotes2B = {"YourNote1B", "YourNote2B"};
 
-        Course yourCourseB = new Course(crn2B, placeholderUsp, subj2B, placeholderCNumber,placeholderSection, placeholderTitle, placeholderCredits, yourCourseDay, placeholderStart, placeholderStop, placeholderBuilding, placeholderRoom, courseNotes2B);
+        Course yourCourseB = new Course(crn2B, placeholderUsp, subj2B, placeholderCNumber,placeholderSection, placeholderTitle, placeholderCredits, yourCourseDay, placeholderStart, placeholderStop, placeholderBuilding, placeholderRoom, placeholderInstructor, courseNotes2B);
         System.out.println("Here is the CRN for yourCourseB: ");
         System.out.println(yourCourseB.getCrn());
 
@@ -296,6 +310,8 @@ public class HelloWorld{
         String storedStop = ""; 
         String storedBuilding = "";
         String storedRoom = "";
+        
+        String storedInstructor = "";
       //-------------------------------------
         
         ArrayList<String> tempNotesArray = new ArrayList<String>();
@@ -381,7 +397,7 @@ public class HelloWorld{
                 String[] completeNotes = new String[tempNotesArray.size()];
                 completeNotes = tempNotesArray.toArray(completeNotes);
                 
-                Course completeCourse = new Course(previousCRN, storedUsp, storedSubject, storedCNumber, storedSection, storedTitle, storedCredits, completeDays, storedStart, storedStop, storedBuilding, storedRoom, completeNotes);
+                Course completeCourse = new Course(previousCRN, storedUsp, storedSubject, storedCNumber, storedSection, storedTitle, storedCredits, completeDays, storedStart, storedStop, storedBuilding, storedRoom, storedInstructor, completeNotes);
                 finalList.add(completeCourse);
                 
             // (4 of 7) The last CRN is being read in and it's not also the first (and not a repeat)
@@ -396,7 +412,7 @@ public class HelloWorld{
                 String[] completeNotes = new String[tempNotesArray.size()];
                 completeNotes = tempNotesArray.toArray(completeNotes);
                 
-                Course completeCourse = new Course(previousCRN, storedUsp, storedSubject, storedCNumber, storedSection, storedTitle, storedCredits, completeDays, storedStart, storedStop, storedBuilding, storedRoom, completeNotes);
+                Course completeCourse = new Course(previousCRN, storedUsp, storedSubject, storedCNumber, storedSection, storedTitle, storedCredits, completeDays, storedStart, storedStop, storedBuilding, storedRoom, storedInstructor, completeNotes);
                 finalList.add(completeCourse);
                 
                 
@@ -413,8 +429,10 @@ public class HelloWorld{
                 storedStop = element.getStop(); 
                 storedBuilding = element.getBuilding();
                 storedRoom = element.getRoom();
+                
+                storedInstructor = element.getInstructor();
                 //-------------------------------------
-                Course lastCourse = new Course(currentCRN, storedUsp, storedSubject, storedCNumber, storedSection, storedTitle, storedCredits, currentDays, storedStart, storedStop, storedBuilding, storedRoom, currentNotes);
+                Course lastCourse = new Course(currentCRN, storedUsp, storedSubject, storedCNumber, storedSection, storedTitle, storedCredits, currentDays, storedStart, storedStop, storedBuilding, storedRoom, storedInstructor, currentNotes);
                 finalList.add(lastCourse);
 
             // (5 of 7) There first CRN is being read and there are more to come
@@ -440,6 +458,8 @@ public class HelloWorld{
                 storedStop = element.getStop(); 
                 storedBuilding = element.getBuilding();
                 storedRoom = element.getRoom();
+                
+                storedInstructor = element.getInstructor();
                 //-------------------------------------
                 
 
@@ -470,8 +490,10 @@ public class HelloWorld{
                 storedStop = element.getStop(); 
                 storedBuilding = element.getBuilding();
                 storedRoom = element.getRoom();
+                
+                storedInstructor = element.getInstructor();
                 //-------------------------------------
-                Course lastCourse = new Course(currentCRN, storedUsp, storedSubject, storedCNumber, storedSection, storedTitle, storedCredits, currentDays, storedStart, storedStop, storedBuilding, storedRoom, currentNotes);
+                Course lastCourse = new Course(currentCRN, storedUsp, storedSubject, storedCNumber, storedSection, storedTitle, storedCredits, currentDays, storedStart, storedStop, storedBuilding, storedRoom, storedInstructor, currentNotes);
                 finalList.add(lastCourse);
             	
             	
@@ -489,7 +511,7 @@ public class HelloWorld{
                     System.out.println(s);
                 }
                 */
-                Course completeCourse = new Course(previousCRN, storedUsp, storedSubject, storedCNumber, storedSection, storedTitle, storedCredits, completeDays, storedStart, storedStop, storedBuilding, storedRoom, completeNotes);
+                Course completeCourse = new Course(previousCRN, storedUsp, storedSubject, storedCNumber, storedSection, storedTitle, storedCredits, completeDays, storedStart, storedStop, storedBuilding, storedRoom, storedInstructor, completeNotes);
                 finalList.add(completeCourse);
                 System.out.println(finalList.size());
 
@@ -516,6 +538,8 @@ public class HelloWorld{
                 storedStop = element.getStop(); 
                 storedBuilding = element.getBuilding();
                 storedRoom = element.getRoom();
+                
+                storedInstructor = element.getInstructor();
                 //-------------------------------------
                 
             }
@@ -556,6 +580,8 @@ public class HelloWorld{
             System.out.println(element.getStop()); 
             System.out.println(element.getBuilding());
             System.out.println(element.getRoom());
+            
+            System.out.println(element.getInstructor());
             
             flotsamNotes = element.getNotes();
             for(String s : flotsamNotes){
